@@ -1,0 +1,51 @@
+body {
+	margin: 40px auto;
+	padding: 0 40px;
+	max-width: 720px;
+	font-family: "PT Sans";
+}
+
+header {
+	float: right;
+	clear: both;
+}
+
+section {
+	float: left;
+	clear: both;
+}
+
+p {
+	font-size: 18pt;
+	line-height: 1.6em;
+}
+
+ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+nav li {
+	display: inline-block;
+	margin: 0 40px 0 0;
+}
+
+a {
+	display: inline-block;
+	font-size: 16pt;
+	text-decoration: none;
+}
+
+nav a {
+	font-size: 20pt;
+	color: black;
+}
+
+section.projects a {
+	font-family: "Inconsolata";
+}
+
+h1 {
+	font-size: 24pt;
+}
+

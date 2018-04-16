@@ -12,7 +12,7 @@ The PNG file format supports lossless compression, in constrast to lossy compres
 [^3]: This is the same compression algorithm used by the gzip and ZIP file formats. https://en.wikipedia.org/wiki/DEFLATE
 [^4]: Inflating, if you will.
 
-As I read through [RFC 1951](https://tools.ietf.org/html/rfc1951) to figure out exactly how to do this, I came across this table[^7]:
+As I read through [RFC 1951](https://tools.ietf.org/html/rfc1951) to figure out exactly how to do this, I came across this table[^5]:
 
 ```
                   Extra           Extra               Extra
@@ -30,11 +30,11 @@ As I read through [RFC 1951](https://tools.ietf.org/html/rfc1951) to figure out 
                9   3  25-32   19   8   769-1024   29   13 24577-32768
 ```
 
-[^7]: I'm reluctant to explain what this table actually means, since that would probably double the size of this post. For more information, check out RFC 1951 or [this great explanation of the DEFLATE algorithm](https://zlib.net/feldspar.html).
+[^5]: I'm reluctant to explain what this table actually means, since that would probably double the size of this post. For more information, check out RFC 1951 or [this great explanation of the DEFLATE algorithm](https://zlib.net/feldspar.html).
 
-I didn't want to copy that table down in my code manually[^5]. However, if I could find some sort of mapping from the "Code" column to the first number in the "Dist" column, then I would be all set:
+I didn't want to copy that table down in my code manually[^6]. However, if I could find some sort of mapping from the "Code" column to the first number in the "Dist" column, then I would be all set:
 
-[^5]: In hindsight, I probably would have saved a lot of time if I had just done that.
+[^6]: In hindsight, I probably would have saved a lot of time if I had just done that.
 
 ```
 Code Dist
@@ -58,18 +58,18 @@ Code Dist
 
 I tried racking my brain for some sort of pattern, but I couldn't come up with anything neat and clean. As a last-ditch effort, I tried searching for the sequence of numbers in the "Dist" column in the [On-Line Encyclopedia of Integer Sequences](https://http://oeis.org). I got no results. Then I tried searching again, except this time I didn't include the first four elements in the sequence. This time, I got [exactly one result](http://oeis.org/A209721).
 
-It turns out that each number in the "Dist" column contains "1/4 the number of (n+1)X3 0..2 arrays with every 2X2 subblock having distinct clockwise edge differences"[^6]. More relevant to me was that the sequence can be encoded by the following recurrence relation:
+It turns out that each number in the "Dist" column contains "1/4 the number of (n+1)X3 0..2 arrays with every 2X2 subblock having distinct clockwise edge differences"[^7]. More relevant to me was that the sequence can be encoded by the following recurrence relation:
 
-\[
+$$
 a(0) = 3
 a(1) = 4
 a(2) = 5
 a(n) = a(n - 1) + 2a(n - 2) - 2a(n - 3)
-\]
+$$
 
-[^6] If someone knows what this means, please let me know.
+[^7] If someone knows what this means, please let me know.
 
-Neat, clean, and really quick to implement[^7]. Thanks, OEIS!
+Neat, clean, and really quick to implement[^8]. Thanks, OEIS!
 
-[^7] Clearly you'll run into performance issues if you use this straight recursive definition. You can mitigate this by using memoization, building the sequence iteratively from the bottom up, or just generating the sequence offline and pasting it into your code as a table or something.
+[^8] Clearly you'll run into performance issues if you use this straight recursive definition. You can mitigate this by using memoization, building the sequence iteratively from the bottom up, or just generating the sequence offline and pasting it into your code as a table or something.
 
