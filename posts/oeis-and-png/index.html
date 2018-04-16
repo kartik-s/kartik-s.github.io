@@ -52,7 +52,7 @@
    12   65
    13   97
    ...  ...</code></pre>
-  <p>I tried racking my brain for some sort of pattern, but I couldn’t come up with anything neat and clean. As a last-ditch effort, I tried searching for the sequence of numbers in the “Dist” column in the <a href="https://http://oeis.org">On-Line Encyclopedia of Integer Sequences</a>. I got no results. Then I tried searching again, except this time I didn’t include the first four elements in the sequence. This time, I got <a href="http://oeis.org/A209721">exactly one result</a>.</p>
+  <p>I tried racking my brain for some sort of pattern, but I couldn’t come up with anything neat and clean. As a last-ditch effort, I tried searching for the sequence of numbers in the “Dist” column in the <a href="https://oeis.org">On-Line Encyclopedia of Integer Sequences</a>. I got no results. Then I tried searching again, except this time I didn’t include the first four elements in the sequence. This time, I got <a href="http://oeis.org/A209721">exactly one result</a>.</p>
   <p>It turns out that each number in the “Dist” column contains “1/4 the number of (n+1)X3 0..2 arrays with every 2X2 subblock having distinct clockwise edge differences.”<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> More relevant to me was that the sequence can be encoded by the following recurrence relation:</p>
   <pre><code>
   a(0) = 3
@@ -70,7 +70,7 @@
   <li id="fn5"><p>I’m reluctant to explain what this table actually means, since that would probably double the size of this post. For more information, check out RFC 1951 or <a href="https://zlib.net/feldspar.html">this great explanation of the DEFLATE algorithm</a>.<a href="#fnref5" class="footnote-back">↩</a></p></li>
   <li id="fn6"><p>In hindsight, I probably would have saved a lot of time if I had just done that.<a href="#fnref6" class="footnote-back">↩</a></p></li>
   <li id="fn7"><p>If someone knows what this means, please let me know.<a href="#fnref7" class="footnote-back">↩</a></p></li>
-  <li id="fn8"><p>Clearly you’ll run into performance issues if you use this straight recursive definition. You can mitigate this by using memoization, building the sequence iteratively from the bottom up, or just generating the sequence offline and pasting it into your code as a table or something.<a href="#fnref8" class="footnote-back">↩</a></p></li>
+  <li id="fn8"><p>Clearly you’ll run into performance issues if you use this straight recursive definition. You can mitigate this by using memoization, building the sequence iteratively from the bottom up, or just generating the sequence offline and pasting it into your code as a table.<a href="#fnref8" class="footnote-back">↩</a></p></li>
   </ol>
   </section>
 </body>
