@@ -60,12 +60,12 @@ I tried racking my brain for some sort of pattern, but I couldn't come up with a
 
 It turns out that each number in the "Dist" column contains "1/4 the number of (n+1)X3 0..2 arrays with every 2X2 subblock having distinct clockwise edge differences."[^7] More relevant to me was that the sequence can be encoded by the following recurrence relation:
 
-$
+```
 a(0) = 3
 a(1) = 4
 a(2) = 5
 a(n) = a(n - 1) + 2a(n - 2) - 2a(n - 3)
-$
+```
 
 [^7]: If someone knows what this means, please let me know.
 

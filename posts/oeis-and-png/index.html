@@ -54,7 +54,10 @@
    ...  ...</code></pre>
   <p>I tried racking my brain for some sort of pattern, but I couldn’t come up with anything neat and clean. As a last-ditch effort, I tried searching for the sequence of numbers in the “Dist” column in the <a href="https://http://oeis.org">On-Line Encyclopedia of Integer Sequences</a>. I got no results. Then I tried searching again, except this time I didn’t include the first four elements in the sequence. This time, I got <a href="http://oeis.org/A209721">exactly one result</a>.</p>
   <p>It turns out that each number in the “Dist” column contains “1/4 the number of (n+1)X3 0..2 arrays with every 2X2 subblock having distinct clockwise edge differences.”<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> More relevant to me was that the sequence can be encoded by the following recurrence relation:</p>
-  <p>$ a(0) = 3 a(1) = 4 a(2) = 5 a(n) = a(n - 1) + 2a(n - 2) - 2a(n - 3) $</p>
+  <pre><code>a(0) = 3
+  a(1) = 4
+  a(2) = 5
+  a(n) = a(n - 1) + 2a(n - 2) - 2a(n - 3)</code></pre>
   <p>Neat, clean, and really quick to implement.<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a> Thanks, OEIS!</p>
   <section class="footnotes">
   <hr />
